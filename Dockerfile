@@ -6,7 +6,8 @@ COPY . /app
 WORKDIR /app
 
 # Construye el archivo JAR de la aplicación
-RUN ./mvn clean install -DskipTests
+RUN chmod -R 777 app
+RUN ./mvnw clean install -DskipTests
 
 # Ejecuta la aplicación Spring Boot cuando se inicia el contenedor
 CMD ["java", "-jar", "target/wiki-0.0.1-SNAPSHOT.jar"]
