@@ -6,7 +6,7 @@ COPY . /app
 WORKDIR /app
 
 # Construye el archivo JAR de la aplicación
-RUN chmod -R 777 app
+
 RUN ./mvnw clean install -DskipTests
 
 # Ejecuta la aplicación Spring Boot cuando se inicia el contenedor
