@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nombre del Proyecto</title>
     <script type="text/javascript" th:src="@{/js/script1.js}"></script>
-    <style></style>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 
 </head>
 <body>
     <!-- Aquí va el contenido de la página -->
     <header>
         <h1>Nombre del Proyecto</h1>
-        <nav>
+        <h2>Nombre del equipo</h2>
+        <!--<nav>
             <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Equipo</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
-        </nav>
+        </nav>-->
     </header>
 
     <section id="equipo">
@@ -34,10 +35,75 @@
             <!-- Aquí se mostrará la información del miembro seleccionado -->
         </div>
     </section>
-    <h1>DIAGRAMA</h1>
-    <!-- Resto del contenido -->
-    <h1>CASOS DE USO</h1>
 
+    <h1>Descripción del proyecto</h1>
+    <p>Insertar mucho texto</p>
+    <h1>Requirimientos</h1>
+    <h2>No funcionales</h2>
+    <p>Mas texto de no funcionales</p>
+    <h2>Funcionales</h2>
+    <p>Mas texto de funcionales</p>
+
+
+    <h1>Arquitectura del proyecto:</h1>
+    <p>Texto de Arquitectura del proyecto</p>
+    <h2>Diagramas de referencia C4</h2>
+    <h3>Diagrama de contexto</h3>
+    <img th:src="@{/images/placeHolder.jpg}">
+    <h3>Diagrama del contenedor</h3>
+    <img th:src="@{/images/placeHolder.jpg}">
+    <h3>Diagrama de componentes</h3>
+    <img th:src="@{/images/placeHolder.jpg}">
+    <h2>Modelos</h2>
+    <h3>Entididad relacion</h3>
+    <img th:src="@{/images/placeHolder.jpg}">
+    <h2>Diagrama de despliegue</h2>
+    <img th:src="@{/images/placeHolder.jpg}">
+
+
+    <h1>Para desarrollo</h1>
+    <p>Creo que aca hay texto para el desarrollo</p>
+
+
+    <h1>Pruebas</h1>
+    <p>Texto de pruebas</p>
+    <h2>Casos de pruebas frontend</h2>
+    <h2>Casos de pruebas backend</h2>
+
+    <h1>Despliegue</h1>
+    <h2>Versiones</h2>
+
+    <h1>Formulario de contáctenos</h1>
+
+    <!--<form th:action="@{/guardar}" method="post">
+        <div>
+            <label for="nombres">Nombres:</label><br>
+            <input type="text" id="nombres" name="nombres" required maxlength="100">
+            <span th:text="${#fields.errors('nombres')[0].defaultMessage}" class="error"></span>
+        </div>
+        <div>
+            <label for="apellidos">Apellidos:</label><br>
+            <input type="text" id="apellidos" name="apellidos" required maxlength="100">
+            <span th:text="${#fields.errors('apellidos')[0].defaultMessage}" class="error"></span>
+        </div>
+        <div>
+            <label for="correo">Correo:</label><br>
+            <input type="email" id="correo" name="correo" required maxlength="100" pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}">
+            <span th:text="${#fields.errors('correo')[0].defaultMessage}" class="error"></span>
+        </div>
+        <div>
+            <label for="semestre">Semestre:</label><br>
+            <input type="number" id="semestre" name="semestre" required min="0" max="16">
+            <span th:text="${#fields.errors('semestre')[0].defaultMessage}" class="error"></span>
+        </div>
+        <div>
+            <label for="descripcion">Descripción:</label><br>
+            <textarea id="descripcion" name="descripcion" required maxlength="255"></textarea>
+            <span th:text="${#fields.errors('descripcion')[0].defaultMessage}" class="error"></span>
+        </div>
+        <input type="submit" value="Guardar">
+    </form>
+-->
     <footer>
         <p>&copy; 2024 Nombre del Proyecto</p>
     </footer>
