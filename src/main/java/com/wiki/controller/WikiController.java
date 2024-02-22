@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class WikiController {
 
-    @GetMapping("/home")
+    @GetMapping("/grupo13/home")
     public String home(){
          return "index";
      }
