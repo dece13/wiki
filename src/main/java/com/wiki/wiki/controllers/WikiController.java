@@ -11,7 +11,7 @@ public class WikiController {
 
     @GetMapping("/grupo13/home")
     public String home(){
-         return "index";
+         return "index.html";
      }
     
 }
