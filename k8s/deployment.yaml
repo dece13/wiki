@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grupo_1_3
+  name: grupo13
   namespace: thymeleaf
 spec:
   selector:
     matchLabels:
-      app: grupo_1_3
+      app: grupo13
   replicas: 1
   template:
     metadata:
       labels:
-         app: grupo_1_3
+         app: grupo13
     spec:
       imagePullSecrets:
          - name: github-secret
       containers:
-         - name: grupo_1_3
+         - name: grupo13
            image: localhost:5000/grupo_1_3:latest
            ports:
               - containerPort: 8080
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grupo_1_3
+  name: grupo13
   namespace: thymeleaf
 spec:
 #  type: NodePort
   selector:
-    app: grupo_1_3
+    app: grupo13
   ports:
     - protocol: TCP
       port: 8080
