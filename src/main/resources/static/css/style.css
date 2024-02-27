@@ -20,3 +20,13 @@ footer p {
     text-align: center;
     color: #747474;
 }
+/* Centrar el select */
+#select-member {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Agregar un espacio al principio del texto normal */
+p {
+    text-indent: 1em; /* Ajusta el valor según tu preferencia */
+}
