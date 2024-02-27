@@ -1,22 +1,22 @@
 /* Estilo para centrar y colorear títulos */
 h1, h2, h3 {
     text-align: center;
-    color: #00ffff;
+    color: #747474;
 }
 
 /* Añade un estilo diferente para los títulos dentro del formulario de contáctenos */
 form h1 {
     text-align: left; /* Cambia la alineación para adaptarse mejor al formulario */
-    color: #00ffff;
+    color: #747474;
 }
 
 /* Estilo para el encabezado del equipo */
 #equipo h2 {
-    color: #00ffff;
+    color: #747474;
 }
 
 /* Estilo para el pie de página */
 footer p {
     text-align: center;
-    color: #00ffff;
+    color: #747474;
 }
