@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/images/**").addResourceLocations("classpath:/static/images/");
-        registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
+        registry.addResourceHandler("/images/placeHolder.jpg").addResourceLocations("classpath:/static/images/");
+        registry.addResourceHandler("/css/style.css").addResourceLocations("classpath:/static/css/");
     }
 }
