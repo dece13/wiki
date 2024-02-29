@@ -4,21 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nombre del Proyecto</title>
-    <script type="text/javascript" th:src="@{/js/script1.js}"></script>
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <style>
+        /* Estilo para centrar y colorear títulos */
+        h1, h2, h3 {
+            text-align: center;
+            color: #747474;
+        }
+
+        /* Añade un estilo diferente para los títulos dentro del formulario de contáctenos */
+        form h1 {
+            text-align: left; /* Cambia la alineación para adaptarse mejor al formulario */
+            color: #747474;
+        }
+
+        /* Estilo para el encabezado del equipo */
+        #equipo h2 {
+            color: #747474;
+        }
+
+        /* Estilo para el pie de página */
+        footer p {
+            text-align: center;
+            color: #747474;
+        }
+
+        /* Centrar el select */
+        #select-member {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Agregar un espacio al principio del texto normal */
+        p {
+            text-indent: 1em; /* Ajusta el valor según tu preferencia */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectMember = document.getElementById('select-member');
+            const memberInfo = document.getElementById('member-info');
+
+            // Datos de los miembros del equipo (pueden ser obtenidos de una base de datos o archivo JSON)
+            const members = [
+                { name: 'Daniel Castellanos', role: 'Líder técnico', languages: 'HTML/CSS/JS', description: 'Descripción del Miembro 1' },
+                { name: 'Julian', role: 'Líder planeación', languages: 'Thymeleaf', description: 'Descripción del Miembro 2' },
+                { name: 'Martin Medina', role: 'Líder de pruebas', languages: 'Java', description: 'Descripción del Miembro 3' }
+                // Agrega más miembros según sea necesario
+            ];
+
+            // Función para mostrar la información del miembro seleccionado
+            function displayMemberInfo(memberIndex) {
+                const member = members[memberIndex - 1]; // Restamos 1 para obtener el índice correcto del array
+                memberInfo.innerHTML = `
+                    <h3>${member.name}</h3>
+                    <p><strong>Rol:</strong> ${member.role}</p>
+                    <p><strong>Lenguajes:</strong> ${member.languages}</p>
+                    <p><strong>Descripción:</strong> ${member.description}</p>
+                `;
+            }
+
+            // Evento para detectar cambios en el select
+            selectMember.addEventListener('change', function () {
+                const selectedMember = parseInt(selectMember.value);
+                if (selectedMember !== 0) {
+                    displayMemberInfo(selectedMember);
+                } else {
+                    memberInfo.innerHTML = ''; // Limpiar el contenido si no se ha seleccionado ningún miembro
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Aquí va el contenido de la página -->
     <header>
         <h1>Nombre del Proyecto</h1>
         <h2>Nombre del equipo</h2>
-        <!--<nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Equipo</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>-->
     </header>
 
     <section id="equipo">
@@ -28,7 +89,6 @@
             <option value="1">Daniel Castellanos</option>
             <option value="2">Julian</option>
             <option value="3">Martin Medina</option>
-        
         </select>
         <div id="member-info">
             <!-- Aquí se mostrará la información del miembro seleccionado -->
