@@ -1,32 +1,88 @@
-/* Estilo para centrar y colorear títulos */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Color de fondo general */
+    color: #333; /* Color de texto general */
+}
+
+header, footer {
+    background-color: #333; /* Color de fondo del encabezado y el pie de página */
+    color: #fff; /* Color de texto del encabezado y el pie de página */
+    text-align: center;
+    padding: 10px;
+}
+
+section {
+    background-color: #fff; /* Color de fondo del contenido */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
 h1, h2, h3 {
-    text-align: center;
-    color: #747474;
+    color: #333; /* Color de texto para los encabezados */
 }
 
-/* Añade un estilo diferente para los títulos dentro del formulario de contáctenos */
-form h1 {
-    text-align: left; /* Cambia la alineación para adaptarse mejor al formulario */
-    color: #747474;
-}
-
-/* Estilo para el encabezado del equipo */
-#equipo h2 {
-    color: #747474;
-}
-
-/* Estilo para el pie de página */
-footer p {
-    text-align: center;
-    color: #747474;
-}
-/* Centrar el select */
-#select-member {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Agregar un espacio al principio del texto normal */
 p {
-    text-indent: 1em; /* Ajusta el valor según tu preferencia */
+    color: #666; /* Color de texto para los párrafos */
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#member-info {
+    background-color: #eee; /* Color de fondo del área de información del miembro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%); /* Convierte las imágenes a escala de grises */
+}
+
+form {
+    background-color: #fff; /* Color de fondo del formulario */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333; /* Color de texto para las etiquetas del formulario */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #333; /* Color de fondo del botón de envío */
+    color: #fff; /* Color de texto del botón de envío */
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555; /* Color de fondo del botón de envío al pasar el mouse */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
