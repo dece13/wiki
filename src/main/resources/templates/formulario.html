@@ -6,7 +6,11 @@
 <title>Formulario de Contáctenos</title>
 <style>
     .error {
+        border: 1px solid red;
+    }
+    .error-message {
         color: red;
+        font-size: 0.8em;
     }
 </style>
 </head>
@@ -14,18 +18,24 @@
 
 <h2>Formulario de Contáctenos</h2>
 
-<form id="contactForm">
+<form id="contactForm" action="/grupo13/home/formulario" method="post">
     <div>
         <label for="nombres">Nombres:</label>
-        <input type="text" id="nombres" name="nombres" required maxlength="100">
+        <input type="text" id="nombres" name="name" required maxlength="100">
     </div>
     <div>
         <label for="apellidos">Apellidos:</label>
         <input type="text" id="apellidos" name="apellidos" required maxlength="100">
     </div>
     <div>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required min="1">
+    </div>
+    
+    <div>
         <label for="correo">Correo:</label>
         <input type="email" id="correo" name="correo" required maxlength="100" oninput="validateEmail()">
+        <div id="correoError" class="error-message"></div>
     </div>
     <div>
         <label for="semestre">Semestre:</label>
@@ -35,6 +45,7 @@
         <label for="descripcion">Descripción:</label><br>
         <textarea id="descripcion" name="descripcion" rows="4" cols="50" required maxlength="500" oninput="updateCharacterCount()"></textarea>
         <span id="characterCount">0/500</span>
+        <div id="descripcionError" class="error-message"></div>
     </div>
     <div>
         <input type="submit" value="Enviar">
@@ -49,10 +60,10 @@ function validateEmail() {
 
     if (!correoPattern.test(correoValue)) {
         correoInput.classList.add("error");
-        notifyError("Correo debe tener el formato correcto (sin espacios y caracteres especiales).");
+        document.getElementById("correoError").textContent = "Correo debe tener el formato correcto (sin espacios y caracteres especiales).";
     } else {
         correoInput.classList.remove("error");
-        clearError();
+        document.getElementById("correoError").textContent = "";
     }
 }
 
@@ -66,48 +77,15 @@ function updateCharacterCount() {
 
     if (currentLength > maxLength) {
         descripcionInput.classList.add("error");
-        notifyError("Ha excedido la cantidad máxima de caracteres.");
+        document.getElementById("descripcionError").textContent = "Ha excedido la cantidad máxima de caracteres.";
     } else {
         descripcionInput.classList.remove("error");
-        clearError();
+        document.getElementById("descripcionError").textContent = "";
     }
 }
 
-function notifyError(message) {
-    let errorDiv = document.getElementById("errorNotification");
-    if (!errorDiv) {
-        errorDiv = document.createElement("div");
-        errorDiv.id = "errorNotification";
-        errorDiv.classList.add("error");
-        document.body.appendChild(errorDiv);
-    }
-    errorDiv.textContent = message;
-}
-
-function clearError() {
-    let errorDiv = document.getElementById("errorNotification");
-    if (errorDiv) {
-        errorDiv.remove();
-    }
-}
-
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    let isValid = true;
-    let inputs = this.querySelectorAll("input, textarea");
-    inputs.forEach(function(input) {
-        if (!input.checkValidity()) {
-            isValid = false;
-            input.classList.add("error");
-        }
-    });
-    if (!isValid) {
-        notifyError("Por favor, complete todos los campos correctamente.");
-        event.preventDefault();
-    } else {
-        clearError();
-    }
-});
 </script>
 
 </body>
 </html>
+
