@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre del Proyecto</title>
+    <title>Arriendo grupo_1_3</title>
     <style>
        body {
     font-family: Arial, sans-serif;
@@ -91,6 +91,12 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+a{
+    size: 25px;
+    color: blueviolet;
+    padding-bottom: 30px;
 }
     </style>
     <script>
@@ -189,35 +195,7 @@ footer {
     <h1>Formulario de contáctenos</h1>
 
     <a href="/grupo13/home/formulario">Ir al formulario de contacto</a>
-    <!--<form th:action="@{/guardar}" method="post">
-        <div>
-            <label for="nombres">Nombres:</label><br>
-            <input type="text" id="nombres" name="nombres" required maxlength="100">
-            <span th:text="${#fields.errors('nombres')[0].defaultMessage}" class="error"></span>
-        </div>
-        <div>
-            <label for="apellidos">Apellidos:</label><br>
-            <input type="text" id="apellidos" name="apellidos" required maxlength="100">
-            <span th:text="${#fields.errors('apellidos')[0].defaultMessage}" class="error"></span>
-        </div>
-        <div>
-            <label for="correo">Correo:</label><br>
-            <input type="email" id="correo" name="correo" required maxlength="100" pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}">
-            <span th:text="${#fields.errors('correo')[0].defaultMessage}" class="error"></span>
-        </div>
-        <div>
-            <label for="semestre">Semestre:</label><br>
-            <input type="number" id="semestre" name="semestre" required min="0" max="16">
-            <span th:text="${#fields.errors('semestre')[0].defaultMessage}" class="error"></span>
-        </div>
-        <div>
-            <label for="descripcion">Descripción:</label><br>
-            <textarea id="descripcion" name="descripcion" required maxlength="255"></textarea>
-            <span th:text="${#fields.errors('descripcion')[0].defaultMessage}" class="error"></span>
-        </div>
-        <input type="submit" value="Guardar">
-    </form>
--->
+
     <footer>
         
     </footer>
