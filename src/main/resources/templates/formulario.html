@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Contáctenos</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<h2>Formulario de Contáctenos</h2>
+
+<form id="contactForm">
+    <div>
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required maxlength="100">
+    </div>
+    <div>
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required maxlength="100">
+    </div>
+    <div>
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required maxlength="100" oninput="validateEmail()">
+    </div>
+    <div>
+        <label for="semestre">Semestre:</label>
+        <input type="number" id="semestre" name="semestre" min="0" max="16">
+    </div>
+    <div>
+        <label for="descripcion">Descripción:</label><br>
+        <textarea id="descripcion" name="descripcion" rows="4" cols="50" required maxlength="500" oninput="updateCharacterCount()"></textarea>
+        <span id="characterCount">0/500</span>
+    </div>
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+</form>
+
+<script>
+function validateEmail() {
+    let correoInput = document.getElementById("correo");
+    let correoValue = correoInput.value.trim().toUpperCase();
+    let correoPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+    if (!correoPattern.test(correoValue)) {
+        correoInput.classList.add("error");
+        notifyError("Correo debe tener el formato correcto (sin espacios y caracteres especiales).");
+    } else {
+        correoInput.classList.remove("error");
+        clearError();
+    }
+}
+
+function updateCharacterCount() {
+    let descripcionInput = document.getElementById("descripcion");
+    let characterCountSpan = document.getElementById("characterCount");
+    let maxLength = parseInt(descripcionInput.getAttribute("maxlength"));
+    let currentLength = descripcionInput.value.length;
+    
+    characterCountSpan.textContent = currentLength + "/" + maxLength;
+
+    if (currentLength > maxLength) {
+        descripcionInput.classList.add("error");
+        notifyError("Ha excedido la cantidad máxima de caracteres.");
+    } else {
+        descripcionInput.classList.remove("error");
+        clearError();
+    }
+}
+
+function notifyError(message) {
+    let errorDiv = document.getElementById("errorNotification");
+    if (!errorDiv) {
+        errorDiv = document.createElement("div");
+        errorDiv.id = "errorNotification";
+        errorDiv.classList.add("error");
+        document.body.appendChild(errorDiv);
+    }
+    errorDiv.textContent = message;
+}
+
+function clearError() {
+    let errorDiv = document.getElementById("errorNotification");
+    if (errorDiv) {
+        errorDiv.remove();
+    }
+}
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    let isValid = true;
+    let inputs = this.querySelectorAll("input, textarea");
+    inputs.forEach(function(input) {
+        if (!input.checkValidity()) {
+            isValid = false;
+            input.classList.add("error");
+        }
+    });
+    if (!isValid) {
+        notifyError("Por favor, complete todos los campos correctamente.");
+        event.preventDefault();
+    } else {
+        clearError();
+    }
+});
+</script>
+
+</body>
+</html>

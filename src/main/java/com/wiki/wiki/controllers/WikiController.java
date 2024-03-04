@@ -15,4 +15,8 @@ public class WikiController {
          return "index.html";
      }
     
+     @GetMapping("/grupo13/home/formulario")
+    public String showFormulario() {
+        return "formulario.html"; // Nombre de tu página de formulario
+    }
 }
