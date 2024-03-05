@@ -53,6 +53,6 @@ public class WikiController {
 
         applicationRepository.save(application);
 
-        return "redirect:/grupo13/home"; // Redirige de vuelta al formulario después de guardar los datos
+        return "redirect:/grupo13/home"; // Redirige de vuelta al home después de guardar los datos
     }
 }
